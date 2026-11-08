@@ -1,0 +1,321 @@
+{
+  "path": "/baseline/",
+  "throttle": 1,
+  "method": {
+    "WARMUP_MS": 8000,
+    "SETTLE_MS": 1500,
+    "SAMPLE_MS": 3000,
+    "SAMPLES": 3
+  },
+  "measuredAt": "2026-11-08T11:08:15.342Z",
+  "series": {
+    "enemies": {
+      "lastPass": {
+        "enemies": 20000,
+        "towers": 0,
+        "projectiles": 0,
+        "avgFps": 60,
+        "p95Ms": 16.8,
+        "pctOver33": 0,
+        "jsMs": 4.6,
+        "pass": true
+      },
+      "firstFail": {
+        "enemies": 30000,
+        "towers": 0,
+        "projectiles": 0,
+        "avgFps": 45.5,
+        "p95Ms": 33.4,
+        "pctOver33": 30.4,
+        "jsMs": 9.2,
+        "pass": false
+      },
+      "rows": [
+        {
+          "enemies": 2000,
+          "towers": 0,
+          "projectiles": 0,
+          "avgFps": 60,
+          "p95Ms": 16.8,
+          "pctOver33": 0,
+          "jsMs": 1,
+          "pass": true
+        },
+        {
+          "enemies": 5000,
+          "towers": 0,
+          "projectiles": 0,
+          "avgFps": 60,
+          "p95Ms": 16.8,
+          "pctOver33": 0,
+          "jsMs": 1.6,
+          "pass": true
+        },
+        {
+          "enemies": 7500,
+          "towers": 0,
+          "projectiles": 0,
+          "avgFps": 60,
+          "p95Ms": 16.8,
+          "pctOver33": 0,
+          "jsMs": 2,
+          "pass": true
+        },
+        {
+          "enemies": 10000,
+          "towers": 0,
+          "projectiles": 0,
+          "avgFps": 60,
+          "p95Ms": 16.8,
+          "pctOver33": 0,
+          "jsMs": 2.5,
+          "pass": true
+        },
+        {
+          "enemies": 15000,
+          "towers": 0,
+          "projectiles": 0,
+          "avgFps": 60,
+          "p95Ms": 16.8,
+          "pctOver33": 0,
+          "jsMs": 3.5,
+          "pass": true
+        },
+        {
+          "enemies": 20000,
+          "towers": 0,
+          "projectiles": 0,
+          "avgFps": 60,
+          "p95Ms": 16.8,
+          "pctOver33": 0,
+          "jsMs": 4.6,
+          "pass": true
+        },
+        {
+          "enemies": 30000,
+          "towers": 0,
+          "projectiles": 0,
+          "avgFps": 45.5,
+          "p95Ms": 33.4,
+          "pctOver33": 30.4,
+          "jsMs": 9.2,
+          "pass": false
+        },
+        {
+          "enemies": 50000,
+          "towers": 0,
+          "projectiles": 0,
+          "avgFps": 27,
+          "p95Ms": 50,
+          "pctOver33": 93.8,
+          "jsMs": 35.3,
+          "pass": false
+        }
+      ]
+    },
+    "towers": {
+      "lastPass": {
+        "enemies": 5000,
+        "towers": 200,
+        "projectiles": 0,
+        "avgFps": 60,
+        "p95Ms": 16.8,
+        "pctOver33": 0,
+        "jsMs": 14,
+        "pass": true
+      },
+      "firstFail": {
+        "enemies": 5000,
+        "towers": 300,
+        "projectiles": 0,
+        "avgFps": 46.7,
+        "p95Ms": 33.4,
+        "pctOver33": 27.7,
+        "jsMs": 20.5,
+        "pass": false
+      },
+      "rows": [
+        {
+          "enemies": 5000,
+          "towers": 50,
+          "projectiles": 0,
+          "avgFps": 60,
+          "p95Ms": 16.8,
+          "pctOver33": 0,
+          "jsMs": 4.8,
+          "pass": true
+        },
+        {
+          "enemies": 5000,
+          "towers": 100,
+          "projectiles": 0,
+          "avgFps": 60,
+          "p95Ms": 16.8,
+          "pctOver33": 0,
+          "jsMs": 7.7,
+          "pass": true
+        },
+        {
+          "enemies": 5000,
+          "towers": 200,
+          "projectiles": 0,
+          "avgFps": 60,
+          "p95Ms": 16.8,
+          "pctOver33": 0,
+          "jsMs": 14,
+          "pass": true
+        },
+        {
+          "enemies": 5000,
+          "towers": 300,
+          "projectiles": 0,
+          "avgFps": 46.7,
+          "p95Ms": 33.4,
+          "pctOver33": 27.7,
+          "jsMs": 20.5,
+          "pass": false
+        },
+        {
+          "enemies": 5000,
+          "towers": 400,
+          "projectiles": 0,
+          "avgFps": 36.6,
+          "p95Ms": 33.4,
+          "pctOver33": 63.1,
+          "jsMs": 26.4,
+          "pass": false
+        }
+      ]
+    },
+    "projectiles": {
+      "lastPass": null,
+      "firstFail": {
+        "enemies": 5000,
+        "towers": 10,
+        "projectiles": 500,
+        "avgFps": 48.7,
+        "p95Ms": 33.4,
+        "pctOver33": 23.1,
+        "jsMs": 19.8,
+        "pass": false
+      },
+      "rows": [
+        {
+          "enemies": 5000,
+          "towers": 10,
+          "projectiles": 500,
+          "avgFps": 48.7,
+          "p95Ms": 33.4,
+          "pctOver33": 23.1,
+          "jsMs": 19.8,
+          "pass": false
+        },
+        {
+          "enemies": 5000,
+          "towers": 10,
+          "projectiles": 1000,
+          "avgFps": 26.9,
+          "p95Ms": 50.1,
+          "pctOver33": 94.9,
+          "jsMs": 36.4,
+          "pass": false
+        }
+      ]
+    },
+    "combined": {
+      "lastPass": {
+        "enemies": 3000,
+        "towers": 60,
+        "projectiles": 600,
+        "avgFps": 59.7,
+        "p95Ms": 17.6,
+        "pctOver33": 0.6,
+        "jsMs": 16.3,
+        "pass": true
+      },
+      "firstFail": {
+        "enemies": 3250,
+        "towers": 65,
+        "projectiles": 650,
+        "avgFps": 51.1,
+        "p95Ms": 33.4,
+        "pctOver33": 16.2,
+        "jsMs": 19,
+        "pass": false
+      },
+      "rows": [
+        {
+          "enemies": 1000,
+          "towers": 20,
+          "projectiles": 200,
+          "avgFps": 60,
+          "p95Ms": 17.6,
+          "pctOver33": 0,
+          "jsMs": 3.4,
+          "pass": true
+        },
+        {
+          "enemies": 2000,
+          "towers": 40,
+          "projectiles": 400,
+          "avgFps": 60,
+          "p95Ms": 17,
+          "pctOver33": 0,
+          "jsMs": 7.6,
+          "pass": true
+        },
+        {
+          "enemies": 2500,
+          "towers": 50,
+          "projectiles": 500,
+          "avgFps": 60,
+          "p95Ms": 17.5,
+          "pctOver33": 0,
+          "jsMs": 10.7,
+          "pass": true
+        },
+        {
+          "enemies": 2750,
+          "towers": 55,
+          "projectiles": 550,
+          "avgFps": 60,
+          "p95Ms": 17.6,
+          "pctOver33": 0,
+          "jsMs": 12.8,
+          "pass": true
+        },
+        {
+          "enemies": 3000,
+          "towers": 60,
+          "projectiles": 600,
+          "avgFps": 59.7,
+          "p95Ms": 17.6,
+          "pctOver33": 0.6,
+          "jsMs": 16.3,
+          "pass": true
+        },
+        {
+          "enemies": 3250,
+          "towers": 65,
+          "projectiles": 650,
+          "avgFps": 51.1,
+          "p95Ms": 33.4,
+          "pctOver33": 16.2,
+          "jsMs": 19,
+          "pass": false
+        },
+        {
+          "enemies": 3500,
+          "towers": 70,
+          "projectiles": 700,
+          "avgFps": 44.8,
+          "p95Ms": 33.4,
+          "pctOver33": 29.1,
+          "jsMs": 21.7,
+          "pass": false
+        }
+      ]
+    }
+  },
+  "displayHz": 60
+}

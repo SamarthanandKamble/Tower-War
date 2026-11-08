@@ -8,7 +8,7 @@ export interface Sprite {
 /** x, y, w, h, dirX, dirY, u, v, uw, vh, color. */
 export const INSTANCE_FLOATS = 11;
 export const INSTANCE_BYTES = INSTANCE_FLOATS * 4;
-export const MAX_INSTANCES = 1 << 18;
+export const MAX_INSTANCES = 1 << 19;
 
 /**
  * Every frame is written into this one preallocated array and handed to a

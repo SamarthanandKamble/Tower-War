@@ -1,6 +1,6 @@
 import { WORLD_HEIGHT, WORLD_WIDTH } from '../data/map';
 import type { Atlas } from './atlas';
-import { INSTANCE_BYTES, INSTANCE_FLOATS, MAX_INSTANCES, type InstanceBatch } from './batch';
+import { INSTANCE_BYTES, INSTANCE_FLOATS, type InstanceBatch } from './batch';
 import type { Camera } from './camera';
 
 export interface Backend {
@@ -43,6 +43,8 @@ void main() {
 }`;
 
 const BUFFER_RING = 3;
+/** GPU buffers start small and double on demand, so normal play stays cheap. */
+const INITIAL_GPU_INSTANCES = 1 << 15;
 
 function compile(gl: WebGL2RenderingContext, type: number, source: string): WebGLShader {
   const shader = gl.createShader(type)!;
@@ -64,6 +66,7 @@ export class WebGLBackend implements Backend {
   private groundTexture!: WebGLTexture;
   private vaos: WebGLVertexArrayObject[] = [];
   private buffers: WebGLBuffer[] = [];
+  private bufferCapacity: number[] = [];
   private groundVao!: WebGLVertexArrayObject;
   private groundBuffer!: WebGLBuffer;
   private ringIndex = 0;
@@ -125,6 +128,7 @@ export class WebGLBackend implements Backend {
     // A ring of buffers means the GPU is never reading the one being written.
     this.vaos = [];
     this.buffers = [];
+    this.bufferCapacity = [];
     for (let i = 0; i < BUFFER_RING; i++) {
       const vao = gl.createVertexArray()!;
       gl.bindVertexArray(vao);
@@ -133,10 +137,11 @@ export class WebGLBackend implements Backend {
       gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
       const buffer = gl.createBuffer()!;
       gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-      gl.bufferData(gl.ARRAY_BUFFER, MAX_INSTANCES * INSTANCE_BYTES, gl.STREAM_DRAW);
+      gl.bufferData(gl.ARRAY_BUFFER, INITIAL_GPU_INSTANCES * INSTANCE_BYTES, gl.STREAM_DRAW);
       this.setInstanceLayout();
       this.vaos.push(vao);
       this.buffers.push(buffer);
+      this.bufferCapacity.push(INITIAL_GPU_INSTANCES);
     }
 
     this.groundVao = gl.createVertexArray()!;
@@ -190,6 +195,12 @@ export class WebGLBackend implements Backend {
     gl.bindTexture(gl.TEXTURE_2D, this.atlasTexture);
     gl.bindVertexArray(this.vaos[this.ringIndex]);
     gl.bindBuffer(gl.ARRAY_BUFFER, this.buffers[this.ringIndex]);
+    if (batch.count > this.bufferCapacity[this.ringIndex]) {
+      let capacity = this.bufferCapacity[this.ringIndex];
+      while (capacity < batch.count) capacity *= 2;
+      gl.bufferData(gl.ARRAY_BUFFER, capacity * INSTANCE_BYTES, gl.STREAM_DRAW);
+      this.bufferCapacity[this.ringIndex] = capacity;
+    }
     gl.bufferSubData(gl.ARRAY_BUFFER, 0, batch.floats, 0, batch.count * INSTANCE_FLOATS);
     gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, batch.count);
     this.drawCalls = 2;

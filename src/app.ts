@@ -74,6 +74,7 @@ export class App {
   private lastWave = 0;
   private endShown = false;
   private autoplay: ((world: World) => void) | null = null;
+  private adaptiveResolution = true;
 
   private readonly pointers = new Map<number, { x: number; y: number }>();
   private dragStart: { x: number; y: number } | null = null;
@@ -177,7 +178,7 @@ export class App {
   /** Trades resolution for frame rate on GPUs that cannot keep up. */
   private adaptResolution(elapsed: number): void {
     this.slowFrames = elapsed > SLOW_FRAME_MS ? this.slowFrames + 1 : 0;
-    if (this.slowFrames < SLOW_FRAMES_BEFORE_DOWNSCALE || this.renderScale <= MIN_RENDER_SCALE || this.backend !== this.glBackend) return;
+    if (!this.adaptiveResolution || this.slowFrames < SLOW_FRAMES_BEFORE_DOWNSCALE || this.renderScale <= MIN_RENDER_SCALE || this.backend !== this.glBackend) return;
     this.slowFrames = 0;
     this.renderScale = Math.max(MIN_RENDER_SCALE, this.renderScale * 0.8);
     this.resize();
@@ -642,7 +643,8 @@ export class App {
         renderScale: this.renderScale,
         backend: this.backend.name,
       }),
-      setOptions: (options: { spatialGrid?: boolean; culling?: boolean; webgl?: boolean }) => {
+      setOptions: (options: { spatialGrid?: boolean; culling?: boolean; webgl?: boolean; adaptiveResolution?: boolean }) => {
+        if (options.adaptiveResolution !== undefined) this.adaptiveResolution = options.adaptiveResolution;
         if (options.spatialGrid !== undefined) this.world.options.spatialGrid = options.spatialGrid;
         if (options.culling !== undefined) this.scene.options.culling = options.culling;
         if (options.webgl !== undefined) this.setBackend(options.webgl);

@@ -1,0 +1,214 @@
+{
+  "measuredAt": "2026-11-08T11:30:03.265Z",
+  "dpr": 2,
+  "viewport": "1500x860",
+  "target": [
+    5000,
+    100,
+    1000
+  ],
+  "runs": {
+    "cpu1x": {
+      "windows": [
+        {
+          "avgFps": 59.8,
+          "p95Ms": 17.3,
+          "pctOver33": 0.08,
+          "simMs": 1.03,
+          "renderMs": 1.17,
+          "frames": 1200,
+          "enemies": 5000,
+          "towers": 101,
+          "projectiles": 1000,
+          "pass": true
+        },
+        {
+          "avgFps": 60,
+          "p95Ms": 17.2,
+          "pctOver33": 0,
+          "simMs": 1.09,
+          "renderMs": 1.23,
+          "frames": 1200,
+          "enemies": 5000,
+          "towers": 102,
+          "projectiles": 1000,
+          "pass": true
+        },
+        {
+          "avgFps": 60,
+          "p95Ms": 17.3,
+          "pctOver33": 0,
+          "simMs": 1.09,
+          "renderMs": 1.22,
+          "frames": 1200,
+          "enemies": 5000,
+          "towers": 103,
+          "projectiles": 1000,
+          "pass": true
+        },
+        {
+          "avgFps": 60,
+          "p95Ms": 17.2,
+          "pctOver33": 0,
+          "simMs": 1.1,
+          "renderMs": 1.24,
+          "frames": 1200,
+          "enemies": 5000,
+          "towers": 104,
+          "projectiles": 1000,
+          "pass": true
+        }
+      ],
+      "allWindowsPass": true,
+      "actions": {
+        "built": 60,
+        "upgraded": 60,
+        "sold": 56
+      },
+      "inputToFrameMs": {
+        "samples": 1207,
+        "median": 31.8,
+        "p95": 61.6
+      }
+    },
+    "cpu4x": {
+      "windows": [
+        {
+          "avgFps": 60,
+          "p95Ms": 17.5,
+          "pctOver33": 0,
+          "simMs": 0.58,
+          "renderMs": 0.73,
+          "frames": 1200,
+          "enemies": 5000,
+          "towers": 100,
+          "projectiles": 1000,
+          "pass": true
+        },
+        {
+          "avgFps": 60,
+          "p95Ms": 17.4,
+          "pctOver33": 0,
+          "simMs": 0.56,
+          "renderMs": 0.75,
+          "frames": 1200,
+          "enemies": 5000,
+          "towers": 100,
+          "projectiles": 1000,
+          "pass": true
+        },
+        {
+          "avgFps": 60,
+          "p95Ms": 17.5,
+          "pctOver33": 0,
+          "simMs": 0.55,
+          "renderMs": 0.73,
+          "frames": 1200,
+          "enemies": 5000,
+          "towers": 100,
+          "projectiles": 1000,
+          "pass": true
+        },
+        {
+          "avgFps": 60,
+          "p95Ms": 17.5,
+          "pctOver33": 0,
+          "simMs": 0.57,
+          "renderMs": 0.74,
+          "frames": 1200,
+          "enemies": 5000,
+          "towers": 100,
+          "projectiles": 1000,
+          "pass": true
+        }
+      ],
+      "allWindowsPass": true,
+      "actions": {
+        "built": 60,
+        "upgraded": 60,
+        "sold": 60
+      },
+      "inputToFrameMs": {
+        "samples": 1221,
+        "median": 32.6,
+        "p95": 34.1
+      }
+    }
+  },
+  "toggles": {
+    "allOn": {
+      "avgFps": 60,
+      "p95Ms": 17.4,
+      "pctOver33": 0,
+      "simMs": 0.99,
+      "renderMs": 1.17,
+      "sprites": 15997,
+      "drawnEnemies": 5000,
+      "culledEnemies": 0,
+      "drawCalls": 2,
+      "pass": true
+    },
+    "noGrid": {
+      "avgFps": 60,
+      "p95Ms": 17.2,
+      "pctOver33": 0,
+      "simMs": 1.81,
+      "renderMs": 1.04,
+      "sprites": 16607,
+      "drawnEnemies": 5000,
+      "culledEnemies": 0,
+      "drawCalls": 2,
+      "pass": true
+    },
+    "canvas2d": {
+      "avgFps": 60,
+      "p95Ms": 16.8,
+      "pctOver33": 0,
+      "simMs": 0.19,
+      "renderMs": 7.23,
+      "sprites": 14666,
+      "drawnEnemies": 5000,
+      "culledEnemies": 0,
+      "drawCalls": 14667,
+      "pass": true
+    }
+  },
+  "offscreen": {
+    "fullMap": {
+      "avgFps": 60,
+      "p95Ms": 16.8,
+      "pctOver33": 0,
+      "simMs": 2.33,
+      "renderMs": 1.76,
+      "sprites": 86970,
+      "drawnEnemies": 40000,
+      "culledEnemies": 0,
+      "drawCalls": 2,
+      "pass": true
+    },
+    "zoomedIn": {
+      "avgFps": 60,
+      "p95Ms": 17.1,
+      "pctOver33": 0,
+      "simMs": 3.9,
+      "renderMs": 0.35,
+      "sprites": 4915,
+      "drawnEnemies": 1770,
+      "culledEnemies": 38230,
+      "drawCalls": 2,
+      "pass": true
+    },
+    "zoomedInNoCull": {
+      "avgFps": 60,
+      "p95Ms": 16.7,
+      "pctOver33": 0,
+      "simMs": 2.7,
+      "renderMs": 2.3,
+      "sprites": 119633,
+      "drawnEnemies": 40000,
+      "culledEnemies": 0,
+      "drawCalls": 2,
+      "pass": true
+    }
+  }
+}

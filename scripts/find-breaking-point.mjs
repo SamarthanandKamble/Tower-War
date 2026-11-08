@@ -16,27 +16,29 @@ const arg = (name, fallback) => {
 const path = arg('path', '/baseline/');
 const out = arg('out', 'baseline-breaking-point');
 const throttle = Number(arg('throttle', '1'));
+const dpr = Number(arg('dpr', '1'));
+const MAX_TOWERS = 1000;
 const WARMUP_MS = 8000;
 const SETTLE_MS = 1500;
 const SAMPLE_MS = 3000;
 const SAMPLES = 3;
 
-const scaled = [0.2, 0.4, 0.5, 0.55, 0.6, 0.65, 0.7, 0.8, 1, 1.25, 1.5, 2, 3, 4, 6, 8, 10];
+const scaled = [0.2, 0.4, 0.5, 0.55, 0.6, 0.65, 0.7, 0.8, 1, 1.25, 1.5, 2, 3, 4, 6, 8, 10, 12, 14, 16, 18, 20];
 const SERIES = {
-  enemies: [2000, 5000, 7500, 10000, 15000, 20000, 30000, 50000].map((e) => [e, 0, 0]),
-  towers: [50, 100, 200, 300, 400].map((t) => [5000, t, 0]),
-  projectiles: [500, 1000, 2000, 3000, 5000, 7500, 10000].map((p) => [5000, 10, p]),
-  combined: scaled.map((s) => [Math.round(5000 * s), Math.round(100 * s), Math.round(1000 * s)]),
+  enemies: [2000, 5000, 7500, 10000, 15000, 20000, 30000, 50000, 75000, 100000].map((e) => [e, 0, 0]),
+  towers: [50, 100, 200, 300, 400, 600, 800, 1000].map((t) => [5000, t, 0]),
+  projectiles: [500, 1000, 2000, 3000, 5000, 7500, 10000, 15000, 20000, 40000].map((p) => [5000, 10, p]),
+  combined: scaled.map((s) => [Math.round(5000 * s), Math.min(MAX_TOWERS, Math.round(100 * s)), Math.round(1000 * s)]),
 };
 
 const median = (values) => [...values].sort((a, b) => a - b)[values.length >> 1];
 
 const preview = await startPreview();
 const browser = await launch();
-const results = { path, throttle, method: { WARMUP_MS, SETTLE_MS, SAMPLE_MS, SAMPLES }, measuredAt: new Date().toISOString(), series: {} };
+const results = { path, throttle, dpr, method: { WARMUP_MS, SETTLE_MS, SAMPLE_MS, SAMPLES }, measuredAt: new Date().toISOString(), series: {} };
 
 try {
-  const page = await browser.newPage({ viewport: { width: 1500, height: 860 } });
+  const page = await browser.newPage({ viewport: { width: 1500, height: 860 }, deviceScaleFactor: dpr });
   // Time spent in rAF callbacks shows JS cost even when vsync hides it.
   await page.addInitScript(() => {
     window.__busy = [];
@@ -64,6 +66,8 @@ try {
   console.log(`display ~${results.displayHz} Hz, build ${await page.evaluate(() => window.__bench.build)}, throttle ${throttle}x`);
 
   await page.evaluate(() => window.__bench.setStress(5000, 100, 1000));
+  // Measurements must not be flattered by the game lowering its own resolution.
+  await page.evaluate(() => window.__bench.setOptions?.({ adaptiveResolution: false }));
   await page.waitForTimeout(WARMUP_MS);
 
   for (const [name, steps] of Object.entries(SERIES)) {
@@ -91,8 +95,11 @@ try {
         jsMs: +median(samples.map((s) => s.jsMs)).toFixed(2),
       };
       row.pass = passes(row);
+      const last = samples[samples.length - 1];
+      if (last.sprites !== undefined) Object.assign(row, { sprites: last.sprites, drawCalls: last.drawCalls, simMs: +median(samples.map((s) => s.simMs)).toFixed(2), renderMs: +median(samples.map((s) => s.renderMs)).toFixed(2) });
+      if (last.enemies !== enemies || last.towers !== towers || last.projectiles !== projectiles) row.countsNotHeld = { enemies: last.enemies, towers: last.towers, projectiles: last.projectiles };
       rows.push(row);
-      console.log(`${name.padEnd(12)} E${enemies} T${towers} P${projectiles}  fps ${row.avgFps}  p95 ${row.p95Ms}ms  >33ms ${row.pctOver33}%  js ${row.jsMs}ms  ${row.pass ? 'PASS' : 'FAIL'}`);
+      console.log(`${name.padEnd(12)} E${enemies} T${towers} P${projectiles}  fps ${row.avgFps}  p95 ${row.p95Ms}ms  >33ms ${row.pctOver33}%  js ${row.jsMs}ms  ${row.pass ? 'PASS' : 'FAIL'}${row.countsNotHeld ? ' COUNTS-NOT-HELD' : ''}`);
       failuresInARow = row.pass ? 0 : failuresInARow + 1;
       if (failuresInARow >= 2) break;
     }

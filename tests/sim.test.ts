@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { TOTAL_WAVES, WAVES } from '../src/data/waves';
 import { TOWERS } from '../src/data/towers';
+import { Bot, BOT_PROFILES } from '../src/sim/bot';
 import { UniformGrid } from '../src/sim/grid';
 import { FixedStepper } from '../src/sim/loop';
 import { DIFFICULTIES, DT, World } from '../src/sim/world';
@@ -149,5 +150,30 @@ describe('game rules', () => {
       expect(world.towerCount).toBe(100);
       expect(world.projectileCount).toBe(1000);
     }
+  });
+});
+
+describe('balance', () => {
+  function playOut(profile: keyof typeof BOT_PROFILES, seed: number): World {
+    const world = new World(seed);
+    const bot = new Bot(BOT_PROFILES[profile]);
+    for (let i = 0; i < 2_000_000 && world.phase !== 'won' && world.phase !== 'lost'; i++) {
+      bot.act(world);
+      world.step();
+      world.fx.clear();
+    }
+    return world;
+  }
+
+  it('lets good play win all 50 waves', { timeout: 60_000 }, () => {
+    const world = playOut('strong', 1);
+    expect(world.phase).toBe('won');
+    expect(world.waveNumber).toBe(TOTAL_WAVES);
+  });
+
+  it('defeats weak play well before the end', { timeout: 60_000 }, () => {
+    const world = playOut('weak', 1);
+    expect(world.phase).toBe('lost');
+    expect(world.waveNumber).toBeLessThan(25);
   });
 });

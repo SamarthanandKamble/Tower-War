@@ -36,7 +36,7 @@ export interface Difficulty {
 
 export const DIFFICULTIES: Record<'normal' | 'hard', Difficulty> = {
   normal: { name: 'Normal', lives: 40, money: 280, hpMult: 1, scoreMult: 1 },
-  hard: { name: 'Hard', lives: 20, money: 220, hpMult: 1.3, scoreMult: 1.6 },
+  hard: { name: 'Hard', lives: 25, money: 240, hpMult: 1.2, scoreMult: 1.6 },
 };
 
 export interface StressConfig {
@@ -206,7 +206,8 @@ export class World {
       const group = wave.groups[g];
       if (elapsed < group.delay || (elapsed - group.delay) % group.gap !== 0) continue;
       const route = group.paths[this.groupSpawned[g] % group.paths.length];
-      this.spawnEnemy(group.type, route, wave.hpScale * this.difficulty.hpMult);
+      const isBoss = (ENEMIES[group.type].flags & EnemyFlag.Boss) !== 0;
+      this.spawnEnemy(group.type, route, (isBoss ? wave.bossHpScale : wave.hpScale) * this.difficulty.hpMult);
       this.groupSpawned[g]++;
       this.groupRemaining[g]--;
     }

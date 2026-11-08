@@ -75,7 +75,7 @@ kbd { font: 700 10px ui-monospace, monospace; color: var(--muted); background: r
 .prio { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin: 8px 0; }
 .prio button { padding: 5px 0; font-size: 11px; }
 .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.actions button { padding: 8px 4px; }
+.actions button { padding: 8px 2px; font-size: 13px; white-space: nowrap; }
 
 #lab { left: 12px; top: 12px; width: 250px; padding: 14px; max-height: calc(100vh - 24px); overflow-y: auto; }
 #lab h2 { margin: 0 0 8px; font-size: 16px; }

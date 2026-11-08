@@ -17,14 +17,18 @@ export interface SpawnGroup {
 export interface WaveDef {
   number: number;
   groups: SpawnGroup[];
-  /** HP multiplier applied to every enemy in the wave. */
+  /** HP multiplier applied to regular enemies in the wave. */
   hpScale: number;
+  /** Bosses scale more gently, since they are already long fights. */
+  bossHpScale: number;
   isBoss: boolean;
 }
 
 export function waveHpScale(n: number): number {
   return Math.pow(1.092, n - 1) * (1 + (n - 1) * 0.02);
 }
+
+const BOSS_SCALE_EXPONENT = 0.72;
 
 function buildWave(n: number): WaveDef {
   const groundPaths = n >= NORTH_ROUTE_WAVE ? [PathId.Main, PathId.North] : [PathId.Main];
@@ -53,7 +57,7 @@ function buildWave(n: number): WaveDef {
   const isBoss = n % 10 === 0;
   if (isBoss) add(EnemyId.Boss, n / 10 + (n === TOTAL_WAVES ? 2 : 0), 150);
 
-  return { number: n, groups, hpScale: waveHpScale(n), isBoss };
+  return { number: n, groups, hpScale: waveHpScale(n), bossHpScale: Math.pow(waveHpScale(n), BOSS_SCALE_EXPONENT), isBoss };
 }
 
 export const WAVES: WaveDef[] = Array.from({ length: TOTAL_WAVES }, (_, i) => buildWave(i + 1));

@@ -21,7 +21,7 @@ const { Gatling, Cannon, Frost, Tesla, Railgun } = {
 
 export const BOT_PROFILES: Record<'strong' | 'average' | 'weak', BotProfile> = {
   strong: {
-    name: 'strong', maxTowers: 90, maxLevel: 3,
+    name: 'strong', maxTowers: 140, maxLevel: 3,
     buildOrder: [Gatling, Gatling, Cannon, Gatling, Frost, Cannon, Tesla, Railgun, Cannon, Tesla, Frost, Railgun],
   },
   average: {

@@ -1,0 +1,71 @@
+{
+  "measuredAt": "2026-11-08T11:14:34.094Z",
+  "node": "v24.15.0",
+  "WARMUP_TICKS": 600,
+  "MEASURE_TICKS": 900,
+  "results": [
+    {
+      "enemies": 5000,
+      "towers": 100,
+      "projectiles": 1000,
+      "spatialGrid": true,
+      "medianMs": 0.303,
+      "p95Ms": 0.385,
+      "maxMs": 0.602
+    },
+    {
+      "enemies": 5000,
+      "towers": 100,
+      "projectiles": 1000,
+      "spatialGrid": false,
+      "medianMs": 0.459,
+      "p95Ms": 0.592,
+      "maxMs": 0.927
+    },
+    {
+      "enemies": 10000,
+      "towers": 200,
+      "projectiles": 2000,
+      "spatialGrid": true,
+      "medianMs": 0.897,
+      "p95Ms": 1.167,
+      "maxMs": 2.524
+    },
+    {
+      "enemies": 10000,
+      "towers": 200,
+      "projectiles": 2000,
+      "spatialGrid": false,
+      "medianMs": 1.588,
+      "p95Ms": 2.084,
+      "maxMs": 3.399
+    },
+    {
+      "enemies": 25000,
+      "towers": 200,
+      "projectiles": 5000,
+      "spatialGrid": true,
+      "medianMs": 2.491,
+      "p95Ms": 3.265,
+      "maxMs": 6.845
+    },
+    {
+      "enemies": 50000,
+      "towers": 300,
+      "projectiles": 10000,
+      "spatialGrid": true,
+      "medianMs": 7.504,
+      "p95Ms": 9.452,
+      "maxMs": 18.345
+    },
+    {
+      "enemies": 100000,
+      "towers": 400,
+      "projectiles": 20000,
+      "spatialGrid": true,
+      "medianMs": 22.919,
+      "p95Ms": 27.571,
+      "maxMs": 37.965
+    }
+  ]
+}

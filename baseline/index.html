@@ -4,8 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tower War: Baseline</title>
+    <link rel="icon" href="data:," />
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #14181f; color: #e6e9ef; font: 14px system-ui, sans-serif; }
+      #layout { display: flex; gap: 12px; padding: 12px; align-items: flex-start; }
+      #stage { position: relative; flex: 1; min-width: 0; }
+      canvas { display: block; width: 100%; height: auto; border-radius: 6px; background: #2b3a2b; cursor: crosshair; }
+      #side { width: 260px; flex: none; display: flex; flex-direction: column; gap: 10px; }
+      .panel { background: #1e242e; border-radius: 6px; padding: 10px; }
+      .panel h3 { margin: 0 0 8px; font-size: 13px; color: #9fb0c6; text-transform: uppercase; letter-spacing: .05em; }
+      button { background: #2f3a4a; color: inherit; border: 0; border-radius: 4px; padding: 6px 8px; cursor: pointer; font: inherit; }
+      button:hover { background: #3c4a5e; }
+      button.active { background: #4a7bd0; }
+      button:disabled { opacity: .45; cursor: default; }
+      .row { display: flex; gap: 6px; flex-wrap: wrap; }
+      #towers button { width: 100%; text-align: left; margin-bottom: 4px; }
+      #stats div { display: flex; justify-content: space-between; }
+      label { display: block; margin-bottom: 6px; }
+      input[type=range] { width: 100%; }
+      #fps { position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,.72); padding: 8px 10px; border-radius: 6px; font: 13px/1.45 ui-monospace, monospace; white-space: pre; pointer-events: none; }
+      #end { position: absolute; inset: 0; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background: rgba(0,0,0,.65); font-size: 28px; }
+    </style>
   </head>
   <body>
-    <div id="app">Baseline build: under construction.</div>
+    <div id="layout">
+      <div id="stage">
+        <canvas id="game" width="1200" height="720"></canvas>
+        <div id="fps"></div>
+        <div id="end"><div id="end-text"></div><button id="end-restart">Restart</button></div>
+      </div>
+      <div id="side">
+        <div class="panel" id="stats"></div>
+        <div class="panel"><h3>Controls</h3>
+          <div class="row">
+            <button id="next">Start wave</button>
+            <button id="pause">Pause</button>
+            <button id="speed">Speed 1x</button>
+            <button id="restart">Restart</button>
+          </div>
+        </div>
+        <div class="panel"><h3>Towers</h3><div id="towers"></div></div>
+        <div class="panel"><h3>Selected</h3><div id="selected">Nothing selected</div></div>
+        <div class="panel"><h3>Stress test</h3>
+          <label>Enemies: <span id="s-e-v">5000</span><input id="s-e" type="range" min="0" max="20000" step="100" value="5000" /></label>
+          <label>Towers: <span id="s-t-v">100</span><input id="s-t" type="range" min="0" max="300" step="10" value="100" /></label>
+          <label>Projectiles: <span id="s-p-v">1000</span><input id="s-p" type="range" min="0" max="5000" step="100" value="1000" /></label>
+          <div class="row"><button id="s-go">Run stress</button><button id="s-stop">Stop</button></div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./game.ts"></script>
   </body>
 </html>

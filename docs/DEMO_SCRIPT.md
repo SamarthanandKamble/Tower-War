@@ -34,7 +34,7 @@ Move the sliders to **5,000 / 100 / 1,000**.
 
 ## 3. How it was optimized (70 seconds)
 
-> "Profiling showed the cost was in JavaScript. Every projectile checked every enemy each frame, and every tower scanned every enemy each frame. That's multiplication: thousands times thousands of distance checks."
+> "Ramping each entity type separately and timing the frame showed the cost was in JavaScript. Every projectile checked every enemy each frame, and every tower scanned every enemy each frame. That's multiplication: thousands times thousands of distance checks."
 
 > "So first, the simulation. Projectiles now track a single target, so a hit test is one check. Towers keep their target and re-check on a staggered schedule. Everything else uses a uniform spatial grid, rebuilt every step in linear time. Entities live in flat typed arrays, so there's no garbage collection pressure, and enemy movement is just a table lookup along the path."
 

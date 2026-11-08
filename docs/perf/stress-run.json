@@ -1,5 +1,5 @@
 {
-  "measuredAt": "2026-11-08T11:30:03.265Z",
+  "measuredAt": "2026-11-08T11:50:10.903Z",
   "dpr": 2,
   "viewport": "1500x860",
   "target": [
@@ -9,14 +9,15 @@
   ],
   "runs": {
     "cpu1x": {
+      "calibrationMs": 3,
       "windows": [
         {
-          "avgFps": 59.8,
-          "p95Ms": 17.3,
+          "avgFps": 59.6,
+          "p95Ms": 17.2,
           "pctOver33": 0.08,
-          "simMs": 1.03,
-          "renderMs": 1.17,
-          "frames": 1200,
+          "simMs": 0.63,
+          "renderMs": 0.71,
+          "frames": 1195,
           "enemies": 5000,
           "towers": 101,
           "projectiles": 1000,
@@ -24,10 +25,10 @@
         },
         {
           "avgFps": 60,
-          "p95Ms": 17.2,
+          "p95Ms": 17.3,
           "pctOver33": 0,
-          "simMs": 1.09,
-          "renderMs": 1.23,
+          "simMs": 0.64,
+          "renderMs": 0.74,
           "frames": 1200,
           "enemies": 5000,
           "towers": 102,
@@ -38,8 +39,8 @@
           "avgFps": 60,
           "p95Ms": 17.3,
           "pctOver33": 0,
-          "simMs": 1.09,
-          "renderMs": 1.22,
+          "simMs": 0.67,
+          "renderMs": 0.75,
           "frames": 1200,
           "enemies": 5000,
           "towers": 103,
@@ -48,10 +49,10 @@
         },
         {
           "avgFps": 60,
-          "p95Ms": 17.2,
+          "p95Ms": 17.3,
           "pctOver33": 0,
-          "simMs": 1.1,
-          "renderMs": 1.24,
+          "simMs": 0.59,
+          "renderMs": 0.67,
           "frames": 1200,
           "enemies": 5000,
           "towers": 104,
@@ -62,23 +63,24 @@
       "allWindowsPass": true,
       "actions": {
         "built": 60,
-        "upgraded": 60,
+        "upgraded": 59,
         "sold": 56
       },
       "inputToFrameMs": {
-        "samples": 1207,
-        "median": 31.8,
-        "p95": 61.6
+        "samples": 1325,
+        "median": 32.2,
+        "p95": 42.2
       }
     },
-    "cpu4x": {
+    "cpu6x": {
+      "calibrationMs": 18.1,
       "windows": [
         {
           "avgFps": 60,
-          "p95Ms": 17.5,
+          "p95Ms": 17.6,
           "pctOver33": 0,
-          "simMs": 0.58,
-          "renderMs": 0.73,
+          "simMs": 0.75,
+          "renderMs": 1.02,
           "frames": 1200,
           "enemies": 5000,
           "towers": 100,
@@ -87,10 +89,22 @@
         },
         {
           "avgFps": 60,
-          "p95Ms": 17.4,
+          "p95Ms": 17.6,
           "pctOver33": 0,
-          "simMs": 0.56,
-          "renderMs": 0.75,
+          "simMs": 0.74,
+          "renderMs": 1.04,
+          "frames": 1200,
+          "enemies": 5000,
+          "towers": 100,
+          "projectiles": 1000,
+          "pass": true
+        },
+        {
+          "avgFps": 60,
+          "p95Ms": 17.6,
+          "pctOver33": 0,
+          "simMs": 0.7,
+          "renderMs": 1.11,
           "frames": 1200,
           "enemies": 5000,
           "towers": 100,
@@ -101,23 +115,11 @@
           "avgFps": 60,
           "p95Ms": 17.5,
           "pctOver33": 0,
-          "simMs": 0.55,
-          "renderMs": 0.73,
+          "simMs": 0.88,
+          "renderMs": 1.27,
           "frames": 1200,
           "enemies": 5000,
-          "towers": 100,
-          "projectiles": 1000,
-          "pass": true
-        },
-        {
-          "avgFps": 60,
-          "p95Ms": 17.5,
-          "pctOver33": 0,
-          "simMs": 0.57,
-          "renderMs": 0.74,
-          "frames": 1200,
-          "enemies": 5000,
-          "towers": 100,
+          "towers": 101,
           "projectiles": 1000,
           "pass": true
         }
@@ -126,11 +128,11 @@
       "actions": {
         "built": 60,
         "upgraded": 60,
-        "sold": 60
+        "sold": 59
       },
       "inputToFrameMs": {
-        "samples": 1221,
-        "median": 32.6,
+        "samples": 1197,
+        "median": 32.3,
         "p95": 34.1
       }
     }
@@ -138,11 +140,11 @@
   "toggles": {
     "allOn": {
       "avgFps": 60,
-      "p95Ms": 17.4,
+      "p95Ms": 17.3,
       "pctOver33": 0,
-      "simMs": 0.99,
-      "renderMs": 1.17,
-      "sprites": 15997,
+      "simMs": 1.17,
+      "renderMs": 1.33,
+      "sprites": 15987,
       "drawnEnemies": 5000,
       "culledEnemies": 0,
       "drawCalls": 2,
@@ -150,11 +152,11 @@
     },
     "noGrid": {
       "avgFps": 60,
-      "p95Ms": 17.2,
+      "p95Ms": 17.1,
       "pctOver33": 0,
-      "simMs": 1.81,
-      "renderMs": 1.04,
-      "sprites": 16607,
+      "simMs": 2,
+      "renderMs": 1.09,
+      "sprites": 16598,
       "drawnEnemies": 5000,
       "culledEnemies": 0,
       "drawCalls": 2,
@@ -165,22 +167,22 @@
       "p95Ms": 16.8,
       "pctOver33": 0,
       "simMs": 0.19,
-      "renderMs": 7.23,
-      "sprites": 14666,
+      "renderMs": 7.33,
+      "sprites": 16197,
       "drawnEnemies": 5000,
       "culledEnemies": 0,
-      "drawCalls": 14667,
+      "drawCalls": 16198,
       "pass": true
     }
   },
   "offscreen": {
     "fullMap": {
       "avgFps": 60,
-      "p95Ms": 16.8,
+      "p95Ms": 16.7,
       "pctOver33": 0,
-      "simMs": 2.33,
-      "renderMs": 1.76,
-      "sprites": 86970,
+      "simMs": 2.81,
+      "renderMs": 2.04,
+      "sprites": 104752,
       "drawnEnemies": 40000,
       "culledEnemies": 0,
       "drawCalls": 2,
@@ -188,23 +190,23 @@
     },
     "zoomedIn": {
       "avgFps": 60,
-      "p95Ms": 17.1,
+      "p95Ms": 17,
       "pctOver33": 0,
-      "simMs": 3.9,
+      "simMs": 4.19,
       "renderMs": 0.35,
-      "sprites": 4915,
-      "drawnEnemies": 1770,
-      "culledEnemies": 38230,
+      "sprites": 4103,
+      "drawnEnemies": 1767,
+      "culledEnemies": 38233,
       "drawCalls": 2,
       "pass": true
     },
     "zoomedInNoCull": {
       "avgFps": 60,
-      "p95Ms": 16.7,
+      "p95Ms": 16.8,
       "pctOver33": 0,
-      "simMs": 2.7,
-      "renderMs": 2.3,
-      "sprites": 119633,
+      "simMs": 2.69,
+      "renderMs": 2.34,
+      "sprites": 106104,
       "drawnEnemies": 40000,
       "culledEnemies": 0,
       "drawCalls": 2,

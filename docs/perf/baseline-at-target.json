@@ -1,0 +1,11 @@
+{
+  "path": "/baseline/",
+  "measuredAt": "2026-11-08T11:55:49.712Z",
+  "enemies": 5000,
+  "towers": 100,
+  "projectiles": 1000,
+  "avgFps": 24.8,
+  "p95Ms": 50.1,
+  "pctOver33": 100,
+  "pass": false
+}

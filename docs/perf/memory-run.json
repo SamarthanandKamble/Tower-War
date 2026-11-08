@@ -1,0 +1,270 @@
+{
+  "measuredAt": "2026-11-08T11:41:16.493Z",
+  "outcome": {
+    "wave": 50,
+    "phase": "won",
+    "enemies": 0,
+    "lives": 40
+  },
+  "speed": 16,
+  "minHeapMB": 1.69,
+  "maxHeapMB": 1.89,
+  "slopeKBPerWave": 3.45,
+  "samples": [
+    {
+      "wave": 1,
+      "heapMB": 1.43,
+      "enemies": 1
+    },
+    {
+      "wave": 2,
+      "heapMB": 1.57,
+      "enemies": 8
+    },
+    {
+      "wave": 3,
+      "heapMB": 1.58,
+      "enemies": 7
+    },
+    {
+      "wave": 4,
+      "heapMB": 1.61,
+      "enemies": 5
+    },
+    {
+      "wave": 5,
+      "heapMB": 1.64,
+      "enemies": 1
+    },
+    {
+      "wave": 6,
+      "heapMB": 1.69,
+      "enemies": 9
+    },
+    {
+      "wave": 7,
+      "heapMB": 1.71,
+      "enemies": 10
+    },
+    {
+      "wave": 8,
+      "heapMB": 1.73,
+      "enemies": 11
+    },
+    {
+      "wave": 9,
+      "heapMB": 1.74,
+      "enemies": 5
+    },
+    {
+      "wave": 10,
+      "heapMB": 1.77,
+      "enemies": 11
+    },
+    {
+      "wave": 11,
+      "heapMB": 1.75,
+      "enemies": 10
+    },
+    {
+      "wave": 12,
+      "heapMB": 1.76,
+      "enemies": 1
+    },
+    {
+      "wave": 13,
+      "heapMB": 1.77,
+      "enemies": 5
+    },
+    {
+      "wave": 14,
+      "heapMB": 1.78,
+      "enemies": 16
+    },
+    {
+      "wave": 15,
+      "heapMB": 1.8,
+      "enemies": 12
+    },
+    {
+      "wave": 16,
+      "heapMB": 1.79,
+      "enemies": 6
+    },
+    {
+      "wave": 17,
+      "heapMB": 1.8,
+      "enemies": 9
+    },
+    {
+      "wave": 18,
+      "heapMB": 1.8,
+      "enemies": 22
+    },
+    {
+      "wave": 19,
+      "heapMB": 1.81,
+      "enemies": 26
+    },
+    {
+      "wave": 20,
+      "heapMB": 1.81,
+      "enemies": 8
+    },
+    {
+      "wave": 21,
+      "heapMB": 1.86,
+      "enemies": 1
+    },
+    {
+      "wave": 22,
+      "heapMB": 1.86,
+      "enemies": 29
+    },
+    {
+      "wave": 23,
+      "heapMB": 1.86,
+      "enemies": 11
+    },
+    {
+      "wave": 24,
+      "heapMB": 1.86,
+      "enemies": 25
+    },
+    {
+      "wave": 25,
+      "heapMB": 1.86,
+      "enemies": 38
+    },
+    {
+      "wave": 26,
+      "heapMB": 1.86,
+      "enemies": 23
+    },
+    {
+      "wave": 27,
+      "heapMB": 1.86,
+      "enemies": 7
+    },
+    {
+      "wave": 28,
+      "heapMB": 1.86,
+      "enemies": 55
+    },
+    {
+      "wave": 29,
+      "heapMB": 1.86,
+      "enemies": 33
+    },
+    {
+      "wave": 30,
+      "heapMB": 1.86,
+      "enemies": 49
+    },
+    {
+      "wave": 31,
+      "heapMB": 1.87,
+      "enemies": 52
+    },
+    {
+      "wave": 32,
+      "heapMB": 1.87,
+      "enemies": 75
+    },
+    {
+      "wave": 33,
+      "heapMB": 1.87,
+      "enemies": 4
+    },
+    {
+      "wave": 34,
+      "heapMB": 1.87,
+      "enemies": 79
+    },
+    {
+      "wave": 35,
+      "heapMB": 1.87,
+      "enemies": 37
+    },
+    {
+      "wave": 36,
+      "heapMB": 1.87,
+      "enemies": 84
+    },
+    {
+      "wave": 37,
+      "heapMB": 1.87,
+      "enemies": 45
+    },
+    {
+      "wave": 38,
+      "heapMB": 1.87,
+      "enemies": 83
+    },
+    {
+      "wave": 39,
+      "heapMB": 1.87,
+      "enemies": 83
+    },
+    {
+      "wave": 40,
+      "heapMB": 1.87,
+      "enemies": 15
+    },
+    {
+      "wave": 41,
+      "heapMB": 1.87,
+      "enemies": 11
+    },
+    {
+      "wave": 42,
+      "heapMB": 1.87,
+      "enemies": 66
+    },
+    {
+      "wave": 43,
+      "heapMB": 1.87,
+      "enemies": 34
+    },
+    {
+      "wave": 44,
+      "heapMB": 1.87,
+      "enemies": 88
+    },
+    {
+      "wave": 45,
+      "heapMB": 1.87,
+      "enemies": 93
+    },
+    {
+      "wave": 46,
+      "heapMB": 1.87,
+      "enemies": 32
+    },
+    {
+      "wave": 47,
+      "heapMB": 1.87,
+      "enemies": 29
+    },
+    {
+      "wave": 48,
+      "heapMB": 1.87,
+      "enemies": 80
+    },
+    {
+      "wave": 49,
+      "heapMB": 1.88,
+      "enemies": 86
+    },
+    {
+      "wave": 50,
+      "heapMB": 1.88,
+      "enemies": 80
+    },
+    {
+      "wave": 50,
+      "heapMB": 1.89,
+      "enemies": 0
+    }
+  ]
+}

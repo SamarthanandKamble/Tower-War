@@ -1,0 +1,47 @@
+{
+  "measuredAt": "2026-11-08T11:58:22.822Z",
+  "load": [
+    25000,
+    500,
+    5000
+  ],
+  "dpr": 2,
+  "cases": {
+    "allOn": {
+      "avgFps": 60,
+      "p95Ms": 16.8,
+      "pctOver33": 0,
+      "simMs": 3.91,
+      "renderMs": 1.51,
+      "drawCalls": 2,
+      "pass": true
+    },
+    "spatialGridOff": {
+      "avgFps": 60,
+      "p95Ms": 16.7,
+      "pctOver33": 0,
+      "simMs": 8.89,
+      "renderMs": 1.04,
+      "drawCalls": 2,
+      "pass": true
+    },
+    "canvas2d": {
+      "avgFps": 15.7,
+      "p95Ms": 100,
+      "pctOver33": 100,
+      "simMs": 9.43,
+      "renderMs": 45.74,
+      "drawCalls": 77126,
+      "pass": false
+    },
+    "allOnAgain": {
+      "avgFps": 60,
+      "p95Ms": 16.7,
+      "pctOver33": 0,
+      "simMs": 3.96,
+      "renderMs": 1.48,
+      "drawCalls": 2,
+      "pass": true
+    }
+  }
+}

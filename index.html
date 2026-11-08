@@ -2,12 +2,99 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>Tower War</title>
     <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/src/ui/style.css" />
   </head>
   <body>
-    <div id="app">Tower War: under construction. <a href="./baseline/">Baseline build</a></div>
+    <div id="stage">
+      <canvas id="gl"></canvas>
+      <canvas id="c2d" hidden></canvas>
+    </div>
+
+    <header id="top" class="hud" hidden>
+      <div class="stat" title="Current wave"><span class="label">Wave</span><b id="h-wave">0/50</b></div>
+      <div class="stat lives" title="Base lives"><span class="label">Lives</span><b id="h-lives">40</b></div>
+      <div class="stat money" title="Money"><span class="label">Money</span><b id="h-money">0</b></div>
+      <div class="stat" title="Score"><span class="label">Score</span><b id="h-score">0</b></div>
+      <div id="preview" title="Enemies in the next wave"></div>
+      <div class="spacer"></div>
+      <button id="b-next" class="primary" title="Send the next wave early for a bonus (N)">Send wave</button>
+      <div class="group" role="group" aria-label="Game speed">
+        <button data-speed="1" class="active" title="Normal speed">1x</button>
+        <button data-speed="2" title="Double speed">2x</button>
+        <button data-speed="4" title="Quadruple speed">4x</button>
+      </div>
+      <button id="b-pause" title="Pause (Space)">Pause</button>
+      <button id="b-mute" title="Mute sound (M)">Sound on</button>
+    </header>
+
+    <nav id="bottom" class="hud" hidden></nav>
+    <aside id="selected" class="hud card" hidden></aside>
+
+    <aside id="lab" class="hud card" hidden>
+      <h2>Stress Lab</h2>
+      <label>Enemies <output id="l-e-v"></output><input id="l-e" type="range" min="0" max="100000" step="500" /></label>
+      <label>Towers <output id="l-t-v"></output><input id="l-t" type="range" min="0" max="1000" step="10" /></label>
+      <label>Projectiles <output id="l-p-v"></output><input id="l-p" type="range" min="0" max="20000" step="100" /></label>
+      <div class="presets">
+        <button data-preset="1">Target</button>
+        <button data-preset="2">2x</button>
+        <button data-preset="5">5x</button>
+        <button data-preset="10">10x</button>
+        <button data-preset="20">20x</button>
+      </div>
+      <h3>Optimizations</h3>
+      <label class="check"><input id="o-backend" type="checkbox" checked /> WebGL2 instancing</label>
+      <label class="check"><input id="o-grid" type="checkbox" checked /> Spatial grid</label>
+      <label class="check"><input id="o-cull" type="checkbox" checked /> Viewport culling</label>
+      <p class="hint">Scroll to zoom and drag to pan. Off-screen enemies stop costing render time.</p>
+      <a class="compare" href="./baseline/?stress=5000,100,1000">Open the unoptimized baseline</a>
+      <button id="l-exit">Exit to menu</button>
+    </aside>
+
+    <pre id="metrics" hidden></pre>
+    <div id="banner" aria-live="polite"></div>
+    <div id="notice" hidden></div>
+
+    <section id="title" class="screen">
+      <div class="panel">
+        <h1>TOWER WAR</h1>
+        <p class="tag">Hold the line for 50 waves.</p>
+        <div class="menu">
+          <button id="m-normal" class="primary">Play: Normal</button>
+          <button id="m-hard">Play: Hard</button>
+          <button id="m-lab">Stress Lab</button>
+        </div>
+        <ol id="scores"></ol>
+        <p class="keys"><kbd>1-5</kbd> build <kbd>U</kbd> upgrade <kbd>X</kbd> sell <kbd>T</kbd> target <kbd>N</kbd> next wave <kbd>F</kbd> speed <kbd>Space</kbd> pause</p>
+      </div>
+    </section>
+
+    <section id="pause" class="screen" hidden>
+      <div class="panel">
+        <h2>Paused</h2>
+        <div class="menu">
+          <button id="p-resume" class="primary">Resume</button>
+          <button id="p-restart">Restart</button>
+          <button id="p-quit">Quit to menu</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="end" class="screen" hidden>
+      <div class="panel">
+        <h2 id="e-title"></h2>
+        <p id="e-sub" class="tag"></p>
+        <dl id="e-stats"></dl>
+        <div class="menu">
+          <button id="e-again" class="primary">Play again</button>
+          <button id="e-menu">Main menu</button>
+        </div>
+      </div>
+    </section>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

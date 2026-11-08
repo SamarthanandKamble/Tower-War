@@ -1,1 +1,3 @@
-console.info('Tower War scaffold');
+import { App } from './app';
+
+new App();
